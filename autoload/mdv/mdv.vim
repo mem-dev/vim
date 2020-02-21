@@ -88,5 +88,5 @@ function! InitMDVCmd()
     call s:post_snippet(about, lastcommand)
 endfunction
 
-vnoremap <localleader>mdv :<c-u>call InitMDV()<cr>
+vnoremap <leader>mdv :<c-u>call InitMDV()<cr>
 command! Mdv call InitMDVCmd()
