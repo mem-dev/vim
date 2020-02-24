@@ -2,7 +2,7 @@ vnoremap <leader>mdv :<c-u>call InitMDV()<cr>
 command! Mdv call InitMDVCmd()
 
 function! s:api_req(url, params, method)
-    let base_url = 'http://localhost:3000/api/v2'
+    let base_url = 'https://mem.dev/api/v2'
     let url = base_url . a:url
     let token = 0
     let g:mdv_token = get(g:, 'mdv_token', "")
