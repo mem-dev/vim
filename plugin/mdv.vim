@@ -1,3 +1,6 @@
+vnoremap <leader>mdv :<c-u>call InitMDV()<cr>
+command! Mdv call InitMDVCmd()
+
 function! s:api_req(url, params, method)
     let base_url = 'http://localhost:3000/api/v2'
     let url = base_url . a:url
@@ -32,7 +35,6 @@ function! InitMDV()
         return 0
     endif
     call s:post_snippet(about, selectedtext)
-    echo "Snippet has been created successfully!"
 endfunction
 
 function! s:authorize(token)
@@ -55,9 +57,7 @@ function! s:post_snippet(about, content)
     \ "source": '', 
     \ "syntax": ''
     \}
-    echo webapi#http#decodeURI(webapi#json#encode(payload))
     let response = s:api_req('/snippets', payload, "post")
-    echo response
     if response.status == 200
 	redraw
         echo "Snippet has been created successfully!"
@@ -87,6 +87,3 @@ function! InitMDVCmd()
     endif
     call s:post_snippet(about, lastcommand)
 endfunction
-
-vnoremap <leader>mdv :<c-u>call InitMDV()<cr>
-command! Mdv call InitMDVCmd()

@@ -6,6 +6,6 @@ https://github.com/mattn/webapi-vim
 
 ### Commands
 
-`<leader>mdv` - only in visual mode. Make sure to select the text first before running this command.
+`<Leader>mdv` - only works in visual mode. Make sure to select the text first before using this command.
 
-`:Mdv` - only in normal mode, it will save the last used command.
+`:Mdv` - used in normal mode, it will get and store the last used command.
